@@ -23,11 +23,11 @@ const Login = () => {
     try {
         const response = await axios.post('http://localhost:8000/api/v1/token/', userData)
         // Store the access and refresh tokens in local storage
-        localStorage.setItem('access_token', response.data.access)
-        localStorage.setItem('refresh_token', response.data.refresh)
+        localStorage.setItem('accessToken', response.data.access)
+        localStorage.setItem('refreshToken', response.data.refresh)
         console.log('Login successful')
         setIsLoggedIn(true)
-        navigate('/') // Redirect to home page after successful login
+        navigate('/dashboard') // Redirect to home page after successful login
     }catch(error){
         console.error('Invalid credentials')
         setError('Invalid credentials')
